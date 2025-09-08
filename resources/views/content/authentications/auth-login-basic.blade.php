@@ -43,7 +43,7 @@
             <h4 class="mb-1">Welcome to {{ config('variables.templateName') }}! 👋</h4>
             <p class="mb-6">Please sign-in to your account and start the adventure</p>
 
-            <form id="formAuthentication" class="mb-6" action="{{ route('login.perform') }}" method="POST">
+            <form id="formAuthentication" class="mb-6" action="{{ route('/') }}" method="POST">
               @csrf
               <div class="mb-6 form-control-validation">
                 <label for="email" class="form-label">Email or Username</label>
