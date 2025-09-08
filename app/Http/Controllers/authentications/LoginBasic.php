@@ -24,8 +24,8 @@ class LoginBasic extends Controller
     die;
 
     $request->validate([
-      'email' => 'required|string', // can be email or username
-      'password' => 'required|string',
+      'email'     => 'required|string', // can be email or username
+      'password'  => 'required|string',
     ]);
 
     echo "here";
