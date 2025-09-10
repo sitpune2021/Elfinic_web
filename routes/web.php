@@ -162,7 +162,7 @@ use App\Http\Controllers\maps\Leaflet;
 
 // Login Page
 Route::get('/', [LoginBasic::class, 'index'])->name('login');
-Route::post('/login', [LoginBasic::class, 'login'])->name('login.perform');
+Route::post('/loginProcess', [LoginBasic::class, 'loginProcess'])->name('loginProcess');
 
 // Dashboard (only for logged-in users)
 Route::get('/dashboard/analytics', [Analytics::class, 'index'])
@@ -210,6 +210,10 @@ Route::get('/app/ecommerce/dashboard', [EcommerceDashboard::class, 'index'])->na
 Route::get('/app/ecommerce/product/list', [EcommerceProductList::class, 'index'])->name('app-ecommerce-product-list');
 Route::get('/app/ecommerce/product/add', [EcommerceProductAdd::class, 'index'])->name('app-ecommerce-product-add');
 Route::get('/app/ecommerce/product/category', [EcommerceProductCategory::class, 'index'])->name('app-ecommerce-product-category');
+
+Route::get('/categories/list', [EcommerceProductCategory::class, 'list'])->name('categories.list');
+Route::post('/categoryProcess', [EcommerceProductCategory::class, 'categoryProcess'])->name('categoryProcess');
+
 Route::get('/app/ecommerce/order/list', [EcommerceOrderList::class, 'index'])->name('app-ecommerce-order-list');
 Route::get('/app/ecommerce/order/details', [EcommerceOrderDetails::class, 'index'])->name('app-ecommerce-order-details');
 Route::get('/app/ecommerce/customer/all', [EcommerceCustomerAll::class, 'index'])->name('app-ecommerce-customer-all');

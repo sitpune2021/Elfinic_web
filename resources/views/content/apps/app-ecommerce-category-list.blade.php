@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'eCommerce Product Category - Apps')
+@section('title', 'Elfinic Product Category - Apps')
 
 @section('vendor-style')
 @vite(['resources/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.scss',
@@ -27,6 +27,8 @@
 
 @section('page-script')
 @vite('resources/assets/js/app-ecommerce-category-list.js')
+
+
 @endsection
 
 @section('content')
@@ -40,8 +42,9 @@
             <th></th>
             <th></th>
             <th>Categories</th>
-            <th class="text-nowrap text-sm-end">Total Products &nbsp;</th>
-            <th class="text-nowrap text-sm-end">Total Earning</th>
+            <th>Status</th>
+            <!-- <th class="text-nowrap text-sm-end">Total Products &nbsp;</th>
+            <th class="text-nowrap text-sm-end">Total Earning</th> -->
             <th class="text-lg-center">Actions</th>
           </tr>
         </thead>
@@ -58,37 +61,28 @@
     </div>
     <!-- Offcanvas Body -->
     <div class="offcanvas-body border-top">
-      <form class="pt-0" id="eCommerceCategoryListForm" onsubmit="return true">
+      <form id="categoryForm" action="{{ route('categoryProcess') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" name="description" id="description">
         <!-- Title -->
         <div class="mb-6 form-control-validation">
-          <label class="form-label" for="ecommerce-category-title">Title</label>
-          <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter category title"
-            name="categoryTitle" aria-label="category title" />
+          <label class="form-label" for="name">Category name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name" />
+          <span class="text-danger error-text name_error"></span>
         </div>
         <!-- Slug -->
         <div class="mb-6 form-control-validation">
-          <label class="form-label" for="ecommerce-category-slug">Slug</label>
-          <input type="text" id="ecommerce-category-slug" class="form-control" placeholder="Enter slug"
-            aria-label="slug" name="slug" />
-        </div>
+        <label class="form-label" for="slug">Slug</label>
+        <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" />
+        <span class="text-danger error-text slug_error"></span>
+    </div>
         <!-- Image -->
         <div class="mb-6">
-          <label class="form-label" for="ecommerce-category-image">Attachment</label>
-          <input class="form-control" type="file" id="ecommerce-category-image" />
-        </div>
-        <!-- Parent category -->
-        <div class="mb-6 ecommerce-select2-dropdown">
-          <label class="form-label" for="ecommerce-category-parent-category">Parent category</label>
-          <select id="ecommerce-category-parent-category" class="select2 form-select"
-            data-placeholder="Select parent category">
-            <option value="">Select parent Category</option>
-            <option value="Household">Household</option>
-            <option value="Management">Management</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Office">Office</option>
-            <option value="Automotive">Automotive</option>
-          </select>
-        </div>
+        <label class="form-label" for="image">Image</label>
+        <input type="file" class="form-control" id="image" name="image" />
+        <span class="text-danger error-text image_error"></span>
+    </div>
+
         <!-- Description -->
         <div class="mb-6">
           <label class="form-label">Description</label>
@@ -108,24 +102,47 @@
               </div>
             </div>
           </div>
+          <span class="text-danger error-text description_error"></span>
         </div>
         <!-- Status -->
         <div class="mb-6 ecommerce-select2-dropdown">
           <label class="form-label">Select category status</label>
-          <select id="ecommerce-category-status" class="select2 form-select" data-placeholder="Select category status">
+          <select id="ecommerce-category-status" name="status" class="select2 form-select" data-placeholder="Select category status">
             <option value="">Select category status</option>
-            <option value="Scheduled">Scheduled</option>
-            <option value="Publish">Publish</option>
-            <option value="Inactive">Inactive</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
           </select>
+          <span class="text-danger error-text status_error"></span>
         </div>
         <!-- Submit and reset -->
         <div class="mb-6">
-          <button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">Add</button>
+          <button type="submit" class="btn btn-primary me-sm-3 me-1">Add</button>
           <button type="reset" class="btn btn-label-danger" data-bs-dismiss="offcanvas">Discard</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
+<script>
+  // Initialize Quill editor after including Quill JS
+  var quill = new Quill('#ecommerce-category-description', {
+      theme: 'snow',
+      modules: {
+          toolbar: '.comment-toolbar'
+      }
+  });
+
+  // Update hidden input on every change
+  quill.on('text-change', function() {
+    alert("");
+      var htmlContent = quill.root.innerHTML; // Get Quill content
+      document.getElementById('description').value = htmlContent; // update hidden input
+      console.log(htmlContent); // optional: debug in console
+      // alert(htmlContent); // optional alert
+  });
+</script>
+
+
 @endsection
