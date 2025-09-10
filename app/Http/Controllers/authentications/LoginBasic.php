@@ -14,46 +14,32 @@ class LoginBasic extends Controller
     return view('content.authentications.auth-login-basic', ['pageConfigs' => $pageConfigs]);
   }
 
-  public function login(Request $request)
-  {
+    public function loginProcess(Request $request)
+    {
+      $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
-    return redirect()->intended(route('dashboard-analytics'));
+        // Determine if input is email or username
+        $loginType = filter_var($request->input('email'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-    echo "<pre>";
-    print_r($request->all());
-    die;
+        $credentials = [
+            $loginType => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
 
-    $request->validate([
-      'email' => 'required|string', // can be email or username
-      'password' => 'required|string',
-    ]);
+        $remember = $request->filled('remember');
+//print_r($credentials);die;
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard/analytics');
+        }
 
-    echo "here";
-    die;
-
-
-    $loginField = $request->input('email');
-
-    // check if input is an email or username
-    $fieldType = filter_var($loginField, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-
-    $credentials = [
-      $fieldType => $loginField,
-      'password' => $request->input('password'),
-    ];
-    print_r($credentials);
-    die;
-
-
-    if (Auth::attempt($credentials, $request->filled('remember'))) {
-      $request->session()->regenerate();
-      return redirect()->intended(route('dashboard-analytics'));
+        // return back()->withErrors([
+        //     'email' => 'Invalid credentials provided.',
+        // ])->onlyInput('email');
     }
-
-    return back()->withErrors([
-      'email' => 'Invalid credentials.',
-    ])->withInput();
-  }
 
 
   public function logout(Request $request)

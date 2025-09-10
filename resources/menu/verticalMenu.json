@@ -103,7 +103,7 @@
             },
             {
               "url": "app/ecommerce/product/category",
-              "name": "Categorys",
+              "name": "categories",
               "slug": "app-ecommerce-product-category"
             },
             {

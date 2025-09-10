@@ -43,12 +43,17 @@
             <h4 class="mb-1">Welcome to {{ config('variables.templateName') }}! 👋</h4>
             <p class="mb-6">Please sign-in to your account and start the adventure</p>
 
-            <form id="formAuthentication" class="mb-6" action="{{ route('login.perform') }}" method="POST">
-              @csrf
+            <form id="formAuthentication" class="mb-6" action="{{ route('loginProcess') }}" method="POST">
+            @csrf
               <div class="mb-6 form-control-validation">
                 <label for="email" class="form-label">Email or Username</label>
                 <input type="text" class="form-control" id="email" name="email"
                   placeholder="Enter your email or username" autofocus />
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
               </div>
               <div class="mb-6 form-password-toggle form-control-validation">
                 <label class="form-label" for="password">Password</label>
@@ -57,6 +62,11 @@
                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                     aria-describedby="password" />
                   <span class="input-group-text cursor-pointer"><i class="icon-base bx bx-hide"></i></span>
+               @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
               </div>
               <div class="mb-7">
