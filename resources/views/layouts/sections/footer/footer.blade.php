@@ -5,6 +5,8 @@ isset($configData['contentLayout']) && $configData['contentLayout'] === 'compact
 : 'container-fluid';
 @endphp
 
+
+
 <!-- Footer-->
 <footer class="content-footer footer bg-footer-theme">
   <div class="{{ $containerFooter }}">
@@ -14,11 +16,10 @@ isset($configData['contentLayout']) && $configData['contentLayout'] === 'compact
         <script>
         document.write(new Date().getFullYear())
         </script>
-        , made with ❤️ by <a href="{{ !empty(config('variables.creatorUrl')) ? config('variables.creatorUrl') : '' }}"
-          target="_blank"
-          class="footer-link">{{ !empty(config('variables.creatorName')) ? config('variables.creatorName') : '' }}</a>
+        , Designed & Developed by <a href="https://sitsolutions.co.in/" target="_blank"
+          class="footer-link"><strong>S-IT Solutions</strong> </a>
       </div>
-      <div class="d-none d-lg-inline-block">
+      <!-- <div class="d-none d-lg-inline-block">
         <a href="{{ config('variables.adminTemplates') ? config('variables.adminTemplates') : '#' }}"
           class="footer-link me-4" target="_blank">Admin Templates</a>
         <a href="{{ config('variables.licenseUrl') ? config('variables.licenseUrl') : '#' }}" class="footer-link me-4"
@@ -29,7 +30,7 @@ isset($configData['contentLayout']) && $configData['contentLayout'] === 'compact
           target="_blank" class="footer-link me-4">Documentation</a>
         <a href="{{ config('variables.support') ? config('variables.support') : '#' }}" target="_blank"
           class="footer-link d-none d-sm-inline-block">Support</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </footer>
