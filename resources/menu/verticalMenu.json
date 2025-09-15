@@ -15,32 +15,32 @@
     {
       "name": "Getting Paid",
       "icon": "menu-icon icon-base bx bx-dollar",
-      "slug": "app-ecommerce",
+      "slug": "app-ecommerce-paid",
       "submenu": [
         {
-          "url": "app/ecommerce/dashboard",
+          "url": "app/ecommerce/paylinks",
           "name": "Pay Links",
-          "slug": "app-ecommerce-dashboard"
+          "slug": "app-ecommerce-paylinks"
         },
         {
-          "url": "app/ecommerce/dashboard",
+          "url": "app/ecommerce/invoices",
           "name": "Invoices",
-          "slug": "app-ecommerce-dashboard"
+          "slug": "app-ecommerce-invoices"
         },
         {
-          "url": "app/ecommerce/dashboard",
+          "url": "app/ecommerce/pricequotes",
           "name": "Price Quotes",
-          "slug": "app-ecommerce-dashboard"
+          "slug": "app-ecommerce-pricequotes"
         },
         {
-          "url": "app/ecommerce/dashboard",
+          "url": "app/ecommerce/proposals",
           "name": "Proposals",
-          "slug": "app-ecommerce-dashboard"
+          "slug": "app-ecommerce-proposals"
         },
         {
-          "url": "app/ecommerce/dashboard",
+          "url": "app/ecommerce/poscheckout",
           "name": "POS Checkout",
-          "slug": "app-ecommerce-dashboard"
+          "slug": "app-ecommerce-poscheckout"
         }
       ]
     },
@@ -50,7 +50,7 @@
     {
       "name": "Sales",
       "icon": "menu-icon icon-base bx bx-trending-up",
-      "slug": "app-ecommerce",
+      "slug": "app-ecommerce-sales",
       "submenu": [
         {
           "url": "app/ecommerce/dashboard",
@@ -88,7 +88,7 @@
       "slug": "app-ecommerce",
       "submenu": [
         {
-          "name": "Store Products",
+          "name": "Store Product",
           "slug": "app-ecommerce-product",
           "submenu": [
             {
@@ -97,24 +97,24 @@
               "slug": "app-ecommerce-product-list"
             },
             {
-              "url": "app/ecommerce/product/add",
+              "url": "app/ecommerce/product/inventory",
               "name": "Inventory",
-              "slug": "app-ecommerce-product-add"
+              "slug": "app-ecommerce-product-inventory"
             },
             {
               "url": "app/ecommerce/product/category",
-              "name": "categories",
+              "name": "Categorys",
               "slug": "app-ecommerce-product-category"
             },
             {
-              "url": "app/ecommerce/product/category",
+              "url": "app/ecommerce/product/stockreq",
               "name": "Back In Stock Requests",
-              "slug": "app-ecommerce-product-category"
+              "slug": "app-ecommerce-product-stockreq"
             },
             {
-              "url": "app/ecommerce/product/category",
+              "url": "app/ecommerce/product/dropshipping",
               "name": "Dropshipping Products",
-              "slug": "app-ecommerce-product-category"
+              "slug": "app-ecommerce-product-dropshipping"
             }
           ]
         },
@@ -130,24 +130,8 @@
         },
         {
           "url": "app/ecommerce/dashboard",
-          "name": "Sales Chamnels",
+          "name": "Sales Channels",
           "slug": "app-ecommerce-dashboard"
-        },
-        {
-          "name": "Order",
-          "slug": "app-ecommerce-order",
-          "submenu": [
-            {
-              "url": "app/ecommerce/order/list",
-              "name": "Order List",
-              "slug": "app-ecommerce-order-list"
-            },
-            {
-              "url": "app/ecommerce/order/details",
-              "name": "Order Details",
-              "slug": "app-ecommerce-order-details"
-            }
-          ]
         },
         {
           "name": "Customer",
@@ -235,111 +219,475 @@
       ]
     },
     {
-      "name": "Academy",
+      "menuHeader": "Blog"
+    },
+    {
+      "name": "Blog",
+      "icon": "menu-icon icon-base bx bx-trending-up",
+      "slug": "app-ecommerce",
+      "submenu": [
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Overview",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Posts",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Comments",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Categories",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Tags",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Writers",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Monetization",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Analytics",
+          "slug": "app-ecommerce-dashboard"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Apps"
+    },
+    {
+      "name": "Apps",
       "icon": "menu-icon icon-base bx bx-book-open",
       "slug": "app-academy",
       "submenu": [
         {
           "url": "app/academy/dashboard",
-          "name": "Dashboard",
+          "name": "Mannage Apps",
           "slug": "app-academy-dashboard"
         },
         {
           "url": "app/academy/course",
-          "name": "My Course",
+          "name": "App Market",
           "slug": "app-academy-course"
         },
         {
-          "url": "app/academy/course-details",
-          "name": "Course Details",
-          "slug": "app-academy-course-details"
+          "url": "app/academy/course",
+          "name": "--------------------",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Wix FAQ",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Checkout Requirements",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Wix Promos",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Site Booster",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Logic:Adavanced Logic for eCom",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Rabbit SEO Traffic Booster",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "ReputeSales:Boost Traffic",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Upurr",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "SeenOn:Get Featured On News",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "ZipCode Checker",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Reviews AI: Helps Buyers Select",
+          "slug": "app-academy-course"
+        },
+        {
+          "url": "app/academy/course",
+          "name": "Wincher Keyword Research",
+          "slug": "app-academy-course"
         }
       ]
     },
     {
-      "name": "Logistics",
-      "icon": "menu-icon icon-base bx bx-car",
-      "slug": "app-logistics",
+      "menuHeader": "Site add Mobile App"
+    },
+    {
+      "name": "Site add Mobile App",
+      "icon": "menu-icon icon-base bx bx-cart-alt",
+      "slug": "app-ecommerce",
       "submenu": [
         {
-          "url": "app/logistics/dashboard",
-          "name": "Dashboard",
-          "slug": "app-logistics-dashboard"
+          "name": "Website & SEO",
+          "slug": "app-ecommerce-product",
+          "submenu": [
+            {
+              "url": "app/ecommerce/website/list",
+              "name": "Website",
+              "slug": "app-ecommerce-website-list"
+            },
+            {
+              "url": "app/ecommerce/website/seo",
+              "name": "SEO",
+              "slug": "app-ecommerce-website-seo"
+            },
+            {
+              "url": "app/ecommerce/website/sitespeed",
+              "name": "Site Speed",
+              "slug": "app-ecommerce-website-sitespeed"
+            },
+            {
+              "url": "app/ecommerce/website/uptime",
+              "name": "Uptime & Security",
+              "slug": "app-ecommerce-website-uptime"
+            }
+          ]
         },
         {
-          "url": "app/logistics/fleet",
-          "name": "Fleet",
-          "slug": "app-logistics-fleet"
+          "url": "app/ecommerce/dashboard",
+          "name": "Mobile App",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Logo & Brand",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Hope-Link in Bio",
+          "slug": "app-ecommerce-dashboard"
         }
       ]
     },
     {
-      "name": "Invoice",
-      "icon": "menu-icon icon-base bx bx-food-menu",
-      "slug": "app-invoice",
-      "submenu": [
-        {
-          "url": "app/invoice/list",
-          "name": "List",
-          "slug": "app-invoice-list"
-        },
-        {
-          "url": "app/invoice/preview",
-          "name": "Preview",
-          "slug": "app-invoice-preview"
-        },
-        {
-          "url": "app/invoice/edit",
-          "name": "Edit",
-          "slug": "app-invoice-edit"
-        },
-        {
-          "url": "app/invoice/add",
-          "name": "Add",
-          "slug": "app-invoice-add"
-        }
-      ]
+      "menuHeader": "Inbox"
     },
     {
-      "name": "Users",
+      "name": "Inbox",
+      "icon": "menu-icon icon-base bx bx-book-open",
+      "slug": "app-academy"
+    },
+    {
+      "menuHeader": "Customers & Leads"
+    },
+    {
+      "name": "Customers & Leads",
       "icon": "menu-icon icon-base bx bx-user",
       "slug": "app-user",
       "submenu": [
         {
           "url": "app/user/list",
-          "name": "List",
+          "name": "Contact",
           "slug": "app-user-list"
         },
         {
-          "name": "View",
-          "slug": "app-user-view",
+          "url": "app/user/list",
+          "name": "Forms & Submisstion",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Pipeline",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Community",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Loyalty Program",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Business Email",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Reviews",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Abandoned Cart",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Marketing"
+    },
+    {
+      "name": "Marketing",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "Marketing Home",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Google Ads",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Facebook & Instagram Ads",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Email Marketing",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Refaral Program",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Discounts",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "menuHeader": "AI Agents"
+    },
+    {
+      "name": "AI Agents",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "AI Marketing Agent",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "AI Custome Agent",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Analytics"
+    },
+    {
+      "name": "Analytics",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "Highlights",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Real-time",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Traffic",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Behavior",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Marketing",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Session Recordings",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Insights",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Benchmarks",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "All Reports",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Automations"
+    },
+    {
+      "name": "Automations",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "Automations",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Functions",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "url": "app/academy/course",
+      "name": "-------------------------",
+      "slug": "app-academy-course"
+    },
+    {
+      "menuHeader": "Automations"
+    },
+    {
+      "name": "Automations",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "Automations",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Functions",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Settings"
+    },
+    {
+      "name": "Settings",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user"
+    },
+    {
+      "menuHeader": "Website Content"
+    },
+    {
+      "name": "Website Content",
+      "icon": "menu-icon icon-base bx bx-user",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "CMS",
+          "slug": "app-user-list"
+        },
+        {
+          "url": "app/user/list",
+          "name": "Multilingul",
+          "slug": "app-user-list"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Developer Tools"
+    },
+    {
+      "name": "Developer Tools",
+      "icon": "menu-icon icon-base bx bx-cart-alt",
+      "slug": "app-ecommerce-developer",
+      "submenu": [
+        {
+          "name": "Logging Tools",
+          "slug": "app-ecommerce-product",
           "submenu": [
             {
-              "url": "app/user/view/account",
-              "name": "Account",
-              "slug": "app-user-view-account"
+              "url": "app/ecommerce/developer/list",
+              "name": "Wix Logs",
+              "slug": "app-ecommerce-developer-list"
             },
             {
-              "url": "app/user/view/security",
-              "name": "Security",
-              "slug": "app-user-view-security"
-            },
-            {
-              "url": "app/user/view/billing",
-              "name": "Billing & Plans",
-              "slug": "app-user-view-billing"
-            },
-            {
-              "url": "app/user/view/notifications",
-              "name": "Notifications",
-              "slug": "app-user-view-notifications"
-            },
-            {
-              "url": "app/user/view/connections",
-              "name": "Connections",
-              "slug": "app-user-view-connections"
+              "url": "app/ecommerce/developer/add",
+              "name": "Advanced Log Tools",
+              "slug": "app-ecommerce-developer-add"
             }
           ]
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Monitoring",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Secrates Manager",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Triggered Emails",
+          "slug": "app-ecommerce-dashboard"
         }
       ]
     },

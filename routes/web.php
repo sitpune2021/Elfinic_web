@@ -207,9 +207,11 @@ Route::get('/app/chat', [Chat::class, 'index'])->name('app-chat');
 Route::get('/app/calendar', [Calendar::class, 'index'])->name('app-calendar');
 Route::get('/app/kanban', [Kanban::class, 'index'])->name('app-kanban');
 Route::get('/app/ecommerce/dashboard', [EcommerceDashboard::class, 'index'])->name('app-ecommerce-dashboard');
+
 Route::get('/app/ecommerce/product/list', [EcommerceProductList::class, 'index'])->name('app-ecommerce-product-list');
 Route::get('/app/ecommerce/product/add', [EcommerceProductAdd::class, 'index'])->name('app-ecommerce-product-add');
 Route::get('/app/ecommerce/product/category', [EcommerceProductCategory::class, 'index'])->name('app-ecommerce-product-category');
+Route::post('/products/store', [EcommerceProductCategory::class, 'store'])->name('products.store');
 
 Route::get('/categories/list', [EcommerceProductCategory::class, 'list'])->name('categories.list');
 Route::post('/categoryProcess', [EcommerceProductCategory::class, 'categoryProcess'])->name('categoryProcess');

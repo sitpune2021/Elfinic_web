@@ -1,6 +1,7 @@
 @import "../../scss/_bootstrap-extended/include";
 @import "mixins";
 
+
 .ql-editor {
   $quill-indent: 2rem;
 
@@ -84,4 +85,5 @@
     inline-size: calc(#{$quill-indent} - .3em);
     white-space: nowrap;
   }
+
 }

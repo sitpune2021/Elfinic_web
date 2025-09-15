@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'eCommerce Add Product - Apps')
+@section('title', 'Elfinic Add Product - Apps')
 
 @section('vendor-style')
 @vite(['resources/assets/vendor/libs/quill/typography.scss', 'resources/assets/vendor/libs/quill/katex.scss',
@@ -23,6 +23,8 @@
 @section('content')
 <div class="app-ecommerce">
   <!-- Add Product -->
+
+
   <div
     class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-6 row-gap-4">
     <div class="d-flex flex-column justify-content-center">
@@ -30,9 +32,11 @@
       <p class="mb-0">Orders placed across your store</p>
     </div>
     <div class="d-flex align-content-center flex-wrap gap-4">
-      <div class="d-flex gap-4"><button class="btn btn-label-secondary">Discard</button> <button
+      <div class="d-flex gap-4">
+        <!-- <button class="btn btn-label-secondary">Discard</button> -->
+         <button
           class="btn btn-label-primary">Save draft</button></div>
-      <button type="submit" class="btn btn-primary">Publish product</button>
+      <button type="button" onCLick="productStore();" class="btn btn-primary">Publish product</button>
     </div>
   </div>
 
@@ -47,15 +51,15 @@
         <div class="card-body">
           <div class="mb-6">
             <label class="form-label" for="ecommerce-product-name">Name</label>
-            <input type="text" class="form-control" id="ecommerce-product-name" placeholder="Product title"
-              name="productTitle" aria-label="Product title" />
+            <input type="text" class="form-control" id="product_name" placeholder="Product title"
+              name="product_name" aria-label="Product title" />
           </div>
           <div class="row mb-6">
             <div class="col"><label class="form-label" for="ecommerce-product-sku">SKU</label> <input type="number"
-                class="form-control" id="ecommerce-product-sku" placeholder="SKU" name="productSku"
+                class="form-control" id="product_sku" placeholder="SKU" name="product_sku"
                 aria-label="Product SKU" /></div>
-            <div class="col"><label class="form-label" for="ecommerce-product-barcode">Barcode</label> <input
-                type="text" class="form-control" id="ecommerce-product-barcode" placeholder="0123-4567"
+            <div class="col"><label class="form-label" for="barcode">Barcode</label> <input
+                type="text" class="form-control" id="barcode" placeholder="0123-4567"
                 name="productBarcode" aria-label="Product barcode" /></div>
           </div>
           <!-- Description -->
@@ -104,7 +108,7 @@
       <!-- Variants -->
       <div class="card mb-6">
         <div class="card-header">
-          <h5 class="card-title mb-0">Variants</h5>
+          <h5 class="card-title mb-0">Product Options</h5>
         </div>
         <div class="card-body">
           <form class="form-repeater">
@@ -113,7 +117,7 @@
                 <div class="row g-6 mb-6">
                   <div class="col-4">
                     <label class="form-label" for="form-repeater-1-1">Options</label>
-                    <select id="form-repeater-1-1" class="select2 form-select" data-placeholder="Size">
+                    <select id="form-repeater-1-1" name="product_options" class="select2 form-select" data-placeholder="Size">
                       <option value="">Size</option>
                       <option value="size">Size</option>
                       <option value="color">Color</option>
@@ -348,19 +352,19 @@
         <div class="card-body">
           <!-- Base Price -->
           <div class="mb-6">
-            <label class="form-label" for="ecommerce-product-price">Base Price</label>
-            <input type="number" class="form-control" id="ecommerce-product-price" placeholder="Price"
-              name="productPrice" aria-label="Product price" />
+            <label class="form-label" for="price">Base Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Price"
+              name="price" aria-label="Product price" />
           </div>
           <!-- Discounted Price -->
           <div class="mb-6">
-            <label class="form-label" for="ecommerce-product-discount-price">Discounted Price</label>
-            <input type="number" class="form-control" id="ecommerce-product-discount-price"
+            <label class="form-label" for="discount_price">Discounted Price</label>
+            <input type="number" class="form-control" id="discount_price"
               placeholder="Discounted Price" name="productDiscountedPrice" aria-label="Product discounted price" />
           </div>
           <!-- Charge tax check box -->
           <div class="form-check ms-2 mt-7 mb-4">
-            <input class="form-check-input" type="checkbox" value="" id="price-charge-tax" checked />
+            <input class="form-check-input" type="checkbox" value="" id="charge-tax" checked />
             <label class="switch-label" for="price-charge-tax"> Charge tax on this product </label>
           </div>
           <!-- Instock switch -->
@@ -378,11 +382,11 @@
       <!-- Organize Card -->
       <div class="card mb-6">
         <div class="card-header">
-          <h5 class="card-title mb-0">Organize</h5>
+          <h5 class="card-title mb-0">Categories</h5>
         </div>
         <div class="card-body">
           <!-- Vendor -->
-          <div class="mb-6 col ecommerce-select2-dropdown">
+          <!-- <div class="mb-6 col ecommerce-select2-dropdown">
             <label class="form-label mb-1" for="vendor"> Vendor </label>
             <select id="vendor" class="select2 form-select" data-placeholder="Select Vendor">
               <option value="">Select Vendor</option>
@@ -390,27 +394,23 @@
               <option value="women-clothing">Women's-clothing</option>
               <option value="kid-clothing">Kid's-clothing</option>
             </select>
-          </div>
+          </div> -->
           <!-- Category -->
           <div class="d-flex justify-content-between align-items-center">
             <div class="mb-6 col ecommerce-select2-dropdown">
-              <label class="form-label mb-1" for="category-org">
-                <span>Category</span>
-              </label>
-              <select id="category-org" class="select2 form-select" data-placeholder="Select Category">
-                <option value="">Select Category</option>
-                <option value="Household">Household</option>
-                <option value="Management">Management</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Office">Office</option>
-                <option value="Automotive">Automotive</option>
-              </select>
+              @foreach($Category as $c)
+             <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="categorys" value="{{ $c->id }}" name="categorys[]"/>
+                <label for="defaultCheck1" class="form-check-label ms-4">
+                  <span class="mb-0 h6">{{ $c->name }}</span>
+                </label>
+              </div>
+              @endforeach
             </div>
-            <a href="javascript:void(0);" class="fw-medium btn btn-icon btn-label-primary ms-4"><i
-                class="icon-base bx bx-plus icon-md"></i></a>
+
           </div>
           <!-- Collection -->
-          <div class="mb-6 col ecommerce-select2-dropdown">
+          <!-- <div class="mb-6 col ecommerce-select2-dropdown">
             <label class="form-label mb-1" for="collection">Collection </label>
             <select id="collection" class="select2 form-select" data-placeholder="Collection">
               <option value="">Collection</option>
@@ -418,29 +418,100 @@
               <option value="women-clothing">Women's-clothing</option>
               <option value="kid-clothing">Kid's-clothing</option>
             </select>
-          </div>
+          </div> -->
           <!-- Status -->
           <div class="mb-6 col ecommerce-select2-dropdown">
             <label class="form-label mb-1" for="status-org">Status </label>
-            <select id="status-org" class="select2 form-select" data-placeholder="Published">
-              <option value="">Published</option>
-              <option value="Published">Published</option>
-              <option value="Scheduled">Scheduled</option>
-              <option value="Inactive">Inactive</option>
+            <select id="status-org" class="select2 form-select" data-placeholder="Active">
+              <option value="">Active</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
             </select>
           </div>
           <!-- Tags -->
-          <div>
+          <!-- <div>
             <label for="ecommerce-product-tags" class="form-label mb-1">Tags</label>
             <input id="ecommerce-product-tags" class="form-control" name="ecommerce-product-tags"
               value="Normal,Standard,Premium" aria-label="Product Tags" />
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- /Organize Card -->
     </div>
     <!-- /Second column -->
   </div>
+
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+
+<script>
+//   $( document ).ready(function() {
+//     alert("");
+// });
+
+Dropzone.autoDiscover = false;
+
+// Initialize Dropzone but prevent auto upload
+var myDropzone = new Dropzone("#dropzone-basic", {
+    autoProcessQueue: false,
+    uploadMultiple: true,
+    parallelUploads: 5,
+    maxFilesize: 5,  // MB
+    acceptedFiles: "image/*",
+    addRemoveLinks: true
+});
+
+// When clicking Publish button
+function productStore() {
+    var formData = new FormData();
+
+    // CSRF
+    formData.append("_token", $("meta[name='csrf-token']").attr("content"));
+
+    var quill = new Quill('#ecommerce-category-description', {
+      theme: 'snow'
+    });
+
+    // Collect text fields
+    formData.append("name", $("#product_name").val());
+    formData.append("sku", $("#product_sku").val());
+    formData.append("price", $("#price").val());
+    formData.append("discount_price", $("#discount_price").val());
+    formData.append("status", $("#status-org").val());
+    formData.append("barcode", $("#barcode").val());
+    formData.append("description", quill.root.innerHTML);
+
+    // Collect categories (checkboxes)
+    $("input[name='categorys[]']:checked").each(function () {
+        formData.append("categories[]", $(this).val());
+    });
+
+    // Collect Dropzone files
+    var files = myDropzone.getAcceptedFiles();
+    for (var i = 0; i < files.length; i++) {
+        formData.append("images[]", files[i]);
+    }
+
+    // AJAX request
+    $.ajax({
+        url: "/products/store",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            alert("✅ Product saved with images!");
+            console.log(response);
+            myDropzone.removeAllFiles(); // clear dropzone
+        },
+        error: function(xhr) {
+          
+            alert("❌ Something went wrong!");
+            console.log(xhr.responseText);
+        }
+    });
+}
+</script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\apps;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Str;
 
@@ -69,5 +70,56 @@ public function list(Request $request)
     return redirect()->route('app/ecommerce/product/category')
                      ->with('success', 'Category created successfully.');
     }
+
+    public function store(Request $request)
+    {
+        // Validate incoming data
+        // $validated = $request->validate([
+        //     'name'        => 'required|string|max:255',
+        //     'sku'         => 'required|string|max:50|unique:products,sku',
+        //     'price'       => 'required|numeric',
+        //     'discount_price' => 'nullable|numeric',
+        //     'barcode'     => 'nullable|string|max:100',
+        //     'categories'  => 'nullable',
+        //     'images.*'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        //     'status'      => 'nullable|in:active,inactive',
+        //     'description' => 'nullable|string',
+        // ]);
+
+        // Create product
+        $product = Product::create([
+            'name'          => $request->name,
+            'sku'           => $request->sku,
+            'barcode'       => $request->barcode,
+            'price'         => $request->price,
+            'description'   => $request->description,
+            'discount_price'=> $request->discount_price,
+            'category_id'   => is_array($request->categories)
+                                ? implode(',', $request->categories)
+                                : $request->categories,
+            'status'        => $request->status ?? 'active',
+        ]);
+
+        // Handle image uploads
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Unique file name (timestamp + uniqid)
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+                // Move file to public folder
+                $image->move(public_path('assets/img/products-images'), $imageName);
+
+                // Save path in DB
+                $product->images()->create([
+                    'image_path' => 'assets/img/products-images/' . $imageName
+                ]);
+            }
+        }
+
+        return redirect()->route('products.index')
+                        ->with('success', 'Product published successfully!');
+    }
+
+
 
 }
