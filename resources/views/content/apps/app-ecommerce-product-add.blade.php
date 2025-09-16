@@ -111,35 +111,34 @@
           <h5 class="card-title mb-0">Product Options</h5>
         </div>
         <div class="card-body">
-          <form class="form-repeater">
-            <div data-repeater-list="group-a">
-              <div data-repeater-item>
-                <div class="row g-6 mb-6">
-                  <div class="col-4">
-                    <label class="form-label" for="form-repeater-1-1">Options</label>
-                    <select id="form-repeater-1-1" name="product_options" class="select2 form-select" data-placeholder="Size">
-                      <option value="">Size</option>
-                      <option value="size">Size</option>
-                      <option value="color">Color</option>
-                      <option value="weight">Weight</option>
-                      <option value="smell">Smell</option>
-                    </select>
-                  </div>
+          <div data-repeater-list="group-a">
+    <div data-repeater-item>
+      <div class="row g-6 mb-6">
+        <div class="col-4">
+          <label class="form-label">Options</label>
+          <select name="product_option[]"  class="select2 form-select" data-placeholder="Size">
+            <option value="size">Size</option>
+            <option value="color">Color</option>
+            <option value="weight">Weight</option>
+            <option value="smell">Smell</option>
+          </select>
+        </div>
 
-                  <div class="col-8">
-                    <label class="form-label invisible" for="form-repeater-1-2">Not visible</label>
-                    <input type="number" id="form-repeater-1-2" class="form-control" placeholder="Enter size" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button class="btn btn-primary" data-repeater-create>
-                <i class="icon-base bx bx-plus icon-sm me-2"></i>
-                Add another option
-              </button>
-            </div>
-          </form>
+        <div class="col-8">
+          <label class="form-label invisible">Value</label>
+          <input type="number" name="product_value[]" class="form-control" placeholder="Enter size" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div>
+    <button class="btn btn-primary" data-repeater-create>
+      <i class="icon-base bx bx-plus icon-sm me-2"></i> Add another option
+    </button>
+  </div>
+</form> -->
+
         </div>
       </div>
       <!-- /Variants -->
@@ -488,6 +487,22 @@ function productStore() {
         formData.append("categories[]", $(this).val());
     });
 
+    let product_options = [];
+    $('select[name="product_option[]"]').each(function() {
+        product_options.push($(this).val());
+    });
+
+    let product_values = [];
+    $('input[name="product_value[]"]').each(function() {
+        product_values.push($(this).val());
+    });
+
+    formData.append("product_option", product_options.join(","));
+    formData.append("product_value", product_values.join(","));
+
+
+
+
     // Collect Dropzone files
     var files = myDropzone.getAcceptedFiles();
     for (var i = 0; i < files.length; i++) {
@@ -507,7 +522,7 @@ function productStore() {
             myDropzone.removeAllFiles(); // clear dropzone
         },
         error: function(xhr) {
-          
+
             alert("❌ Something went wrong!");
             console.log(xhr.responseText);
         }

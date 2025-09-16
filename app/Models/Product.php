@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProductOption;
 
 class Product extends Model
 {
@@ -38,7 +39,11 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
     public function images()
-{
-    return $this->hasMany(ProductImage::class);
-}
+  {
+      return $this->hasMany(ProductImage::class);
+  }
+  public function options()
+    {
+        return $this->hasMany(ProductOption::class);
+    }
 }
