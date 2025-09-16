@@ -14,4 +14,7 @@ class EcommerceProductAdd extends Controller
     ->get();
     return view('content.apps.app-ecommerce-product-add', compact('Category'));
   }
+
+
+
 }
